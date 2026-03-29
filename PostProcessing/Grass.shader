@@ -17,6 +17,7 @@ Shader "Custom/TextureAlphaColor"
         _MovingColor ("Moving Color", Color) = (1,1,0,1)
         _MovingBlend ("Moving Blend", Range(0,1)) = 1.0
         _WindSpeed ("Wind Speed", Float) = 1.0
+        _WindHeight ("Wind Height (UV Y)", Float) = 0.0
         _Cutoff ("Alpha Cutoff", Range(0,1)) = 0.5
     }
 
@@ -52,6 +53,7 @@ Shader "Custom/TextureAlphaColor"
         fixed4 _MovingColor;
         float _MovingBlend;
         float _WindSpeed;
+        float _WindHeight;
         float _Cutoff;
 
         // Simple smooth 3D value-noise. Not true Perlin but good for wind/grass animation.
@@ -98,7 +100,10 @@ Shader "Custom/TextureAlphaColor"
             p += float3(0.0, 0.0, _Time.y * _WindSpeed);
             float n = noise3d(p);
             float3 norm = normalize(v.normal);
-            v.vertex.xyz += norm * (n * _NoiseStrength);
+            // use local UV.y for wind height influence (UV space: 0..1)
+            float localY = v.texcoord.y;
+            float influence = (localY > _WindHeight) ? 1.0 : 0.0;
+            v.vertex.xyz += norm * (n * _NoiseStrength * influence);
         }
 
         void surf (Input IN, inout SurfaceOutputStandard o)

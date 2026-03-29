@@ -7,3 +7,4 @@
 - Postprocessing: https://gitlab.com/s-ilent/SCSS/-/wikis/Other/Post-Processing
 - SFX: https://soundeffect-lab.info/
 - Materials: https://freestylized.com/
+- Auto Adjust Chair: https://booth.pm/en/items/3052333
