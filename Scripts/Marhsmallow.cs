@@ -13,6 +13,7 @@ public class Marhsmallow : UdonSharpBehaviour
     public AudioSource putSound;
     public AudioSource roastSound;
     public float maxCookTime = 5f;
+    public float coolRate = 1f;
 
     [UdonSynced]
     private bool _isVisible = false;
@@ -47,6 +48,11 @@ public class Marhsmallow : UdonSharpBehaviour
             {
                 Roast();
             }
+        }
+        else if (!_isNearCampFire && _cookTimer > 0f && !_isRoasted)
+        {
+            _cookTimer -= coolRate * Time.deltaTime;
+            if (_cookTimer < 0f) _cookTimer = 0f;
         }
     }
 
