@@ -1762,6 +1762,8 @@ MonoBehaviour:
   _udonSharpBackingUdonBehaviour: {fileID: 881145498}
   toggleObjects:
   - {fileID: 1067678770}
+  ensureOffObjects:
+  - {fileID: 1025615887}
 --- !u!1001 &896083721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8259,6 +8261,8 @@ MonoBehaviour:
   _udonSharpBackingUdonBehaviour: {fileID: 1781541619}
   toggleObjects:
   - {fileID: 1025615887}
+  ensureOffObjects:
+  - {fileID: 1067678770}
 --- !u!1 &1782338636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7557475430964789850, guid: 2674f268860583949b53b63df24489ea,
