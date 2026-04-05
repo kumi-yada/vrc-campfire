@@ -197,6 +197,7 @@ MonoBehaviour:
   roastSound: {fileID: 299296055515766851}
   maxCookTime: 5
   coolRate: 1
+  cookParticles: {fileID: 0}
 --- !u!114 &1116825459059991146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: -617992517, guid: 661092b4961be7145bfbe56e1e62337b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gain: 10
+  Gain: 30
   Far: 40
   Near: 0
   VolumetricRadius: 0

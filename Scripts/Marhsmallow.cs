@@ -107,7 +107,10 @@ public class Marhsmallow : UdonSharpBehaviour
     private void ApplyRoast()
     {
         if (marshmallowRenderer != null)
+        {
             marshmallowRenderer.material.SetFloat("_OverlayOpacity", _isRoasted ? 1f : 0f);
+            marshmallowRenderer.material.SetFloat("_UseMainTex", _isRoasted ? 1f : 0f);
+        }
     }
 
     void OnPickupUseDown()
