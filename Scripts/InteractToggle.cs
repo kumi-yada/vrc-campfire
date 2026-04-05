@@ -15,6 +15,7 @@ namespace UdonSharp.Examples.Utilities
         [Tooltip("List of objects to toggle on and off")]
         public GameObject[] toggleObjects;
         public GameObject[] ensureOffObjects;
+        public bool intialState = false;
 
         public void Start()
         {
@@ -23,7 +24,7 @@ namespace UdonSharp.Examples.Utilities
             {
                 if (toggleObject != null)
                 {
-                    toggleObject.SetActive(false);
+                    toggleObject.SetActive(intialState);
                 }
             }
 
