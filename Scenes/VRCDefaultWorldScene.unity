@@ -1194,6 +1194,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f600f117c8a731b31a3e51484179e15d,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f600f117c8a731b31a3e51484179e15d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f600f117c8a731b31a3e51484179e15d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f600f117c8a731b31a3e51484179e15d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1241,6 +1256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f600f117c8a731b31a3e51484179e15d,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f600f117c8a731b31a3e51484179e15d,
         type: 3}
@@ -1752,6 +1772,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -1763,7 +1798,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.039
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
         type: 3}
@@ -1798,6 +1833,11 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ed425f6f0b3b4c11db19b6b7e92f6fdc,
@@ -2898,7 +2938,7 @@ Transform:
   m_GameObject: {fileID: 1436791555}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.344, z: 0}
+  m_LocalPosition: {x: 0, y: 0.191, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3232,8 +3272,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2.3
-      minScalar: 0.8
+      scalar: 2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3610,7 +3650,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 12
+    angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -3696,7 +3736,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.5
+      value: 0.3
       mode: 0
       spread: 0
       speed:
@@ -15295,10 +15335,10 @@ MonoBehaviour:
   DynamicPrefabs:
   - {fileID: 2137691443806681566, guid: 81d0c19dc221c6817a595585c34c7212, type: 3}
   DynamicMaterials:
-  - {fileID: 2100000, guid: 376b0650d0312254e99cb545688d265b, type: 2}
+  - {fileID: 2100000, guid: 6b2a393454163fc17884cb9b8ebfcff3, type: 2}
   - {fileID: 2100000, guid: 276ba178bcc5e51f19a2231fe631b2c4, type: 2}
   - {fileID: 2100000, guid: 66edb1511e7cba437bb8f440116a765b, type: 2}
-  - {fileID: 2100000, guid: 6b2a393454163fc17884cb9b8ebfcff3, type: 2}
+  - {fileID: 2100000, guid: 376b0650d0312254e99cb545688d265b, type: 2}
   - {fileID: 2100000, guid: 58d828628535877cfbfa3a58ee728af4, type: 2}
   - {fileID: 2100000, guid: fc3c6e9ff540419c18cea34f50f75dd3, type: 2}
   - {fileID: 2100000, guid: 3200730f281d2edfc8d2466e79d6adaf, type: 2}

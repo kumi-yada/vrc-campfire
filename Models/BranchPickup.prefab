@@ -197,7 +197,6 @@ MonoBehaviour:
   roastSound: {fileID: 299296055515766851}
   maxCookTime: 5
   coolRate: 1
-  cookParticles: {fileID: 0}
 --- !u!114 &1116825459059991146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gain: 10
-  Far: 40
+  Far: 80
   Near: 0
   VolumetricRadius: 0
   EnableSpatialization: 1
@@ -513,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gain: 30
-  Far: 40
+  Far: 100
   Near: 0
   VolumetricRadius: 0
   EnableSpatialization: 1
@@ -660,7 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gain: 10
-  Far: 40
+  Far: 60
   Near: 0
   VolumetricRadius: 0
   EnableSpatialization: 1
