@@ -88,8 +88,8 @@ MonoBehaviour:
   allowManipulationWhenEquipped: 1
   orientation: 0
   AutoHold: 3
-  InteractionText: Eat
-  UseText: Branch
+  InteractionText: Branch
+  UseText: Eat
   useEventBroadcastType: 0
   UseDownEventName: 
   UseUpEventName: 
@@ -122,9 +122,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.03
-  m_Height: 0.7
+  m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.32, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!114 &5655576431364062084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   putSound: {fileID: 8716476736230296016}
   roastSound: {fileID: 299296055515766851}
   maxCookTime: 5
+  coolRate: 1
 --- !u!114 &1116825459059991146
 MonoBehaviour:
   m_ObjectHideFlags: 0
