@@ -57,7 +57,16 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 9215210003484623201}
-  easterEgg: {fileID: 3097831771695933798}
+  visuals:
+  - {fileID: 3097831771695933798}
+  randomColors:
+  - {r: 0.754717, g: 0.2278391, b: 0.2278391, a: 1}
+  - {r: 0.9811321, g: 0.9380221, b: 0.35172662, a: 1}
+  - {r: 0.30377883, g: 0.7264151, b: 0.30153078, a: 1}
+  - {r: 0.25311497, g: 0.6897035, b: 0.745283, a: 1}
+  - {r: 0.28702387, g: 0.36789384, b: 0.7075472, a: 1}
+  - {r: 0.7224642, g: 0.35323963, b: 0.764151, a: 1}
+  - {r: 0.9245283, g: 0.66389674, b: 0.26165897, a: 1}
 --- !u!114 &9215210003484623201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +108,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -116,17 +125,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}

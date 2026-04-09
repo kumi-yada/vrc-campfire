@@ -5,12 +5,6 @@ using VRC.SDK3.Components;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public enum EventType
-{
-    None,
-    Easter,
-}
-
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class EventSpawner : UdonSharpBehaviour
 {
@@ -36,46 +30,33 @@ public class EventSpawner : UdonSharpBehaviour
 
     private VRCObjectPool pool;
     private float nextSpawnTime;
+    private EventType eventType = EventType.None;
 
     void Start()
     {
         pool = GetComponent<VRCObjectPool>();
+    }
+
+    public void SetEventType(EventType type)
+    {
+        eventType = type;
         ScheduleNextSpawn();
     }
 
     void Update()
     {
-        if (!Utilities.IsValid(pool) || !Networking.IsOwner(gameObject)) return;
-
-        if (Time.time < nextSpawnTime) return;
-
-        var eventType = GetCurrentEventType();
         if (eventType == EventType.None) return;
+        if (!Utilities.IsValid(pool) || !Networking.IsOwner(gameObject)) return;
+        if (Time.time < nextSpawnTime) return;
 
         SpawnFromPool(eventType);
         ScheduleNextSpawn();
     }
 
-    public EventType GetCurrentEventType()
-    {
-        var now = System.DateTime.Now;
-        var month = now.Month;
-
-        if (month == 4)
-        {
-            return EventType.Easter;
-        }
-
-        return EventType.None;
-    }
-
     private void SpawnFromPool(EventType type)
     {
         GameObject spawned = pool.TryToSpawn();
-        if (!Utilities.IsValid(spawned))
-        {
-            return;
-        }
+        if (!Utilities.IsValid(spawned)) return;
 
         Vector3 randomOffset = GetRandomEdgeOffset();
         Vector3 candidatePosition = transform.position + randomOffset;
@@ -91,13 +72,9 @@ public class EventSpawner : UdonSharpBehaviour
             spawnPosition = hit.point + Vector3.up * spawnYOffset;
         }
 
-        Transform spawnedTransform = spawned.transform;
-        spawnedTransform.SetPositionAndRotation(spawnPosition, transform.rotation);
-
         var item = spawned.GetComponent<EventItem>();
-        item.SetEventItem(pool, type);
-
-        Debug.Log($"Spawned object at {spawnedTransform.position} (candidate {candidatePosition}) with offset {randomOffset}", spawned);
+        item.SetEventItem(pool, type, spawnPosition);
+        // Debug.Log($"Spawned object at {spawnPosition} (candidate {candidatePosition}) with offset {randomOffset}", spawned);
     }
 
     private Vector3 GetRandomEdgeOffset()
