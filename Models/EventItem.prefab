@@ -67,6 +67,7 @@ MonoBehaviour:
   - {r: 0.28702387, g: 0.36789384, b: 0.7075472, a: 1}
   - {r: 0.7224642, g: 0.35323963, b: 0.764151, a: 1}
   - {r: 0.9245283, g: 0.66389674, b: 0.26165897, a: 1}
+  spawner: {fileID: 0}
 --- !u!114 &9215210003484623201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,17 +126,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3aab7484e7815808a1e366f33d3a60,
         type: 3}

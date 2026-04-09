@@ -1,5 +1,4 @@
-﻿
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
 using VRC.SDK3.Persistence;
@@ -12,22 +11,23 @@ public class EventItem : UdonSharpBehaviour
 
     public GameObject[] visuals;
     public Color[] randomColors;
+    public EventSpawner spawner;
 
-    private VRCObjectPool objectPool;
     [UdonSynced] private EventType eventType;
     [UdonSynced] private Color color;
     [UdonSynced] private Vector3 spawnPosition;
+    [UdonSynced] private bool isTaken = false;
 
     void Start()
     {
         UpdateVisuals();
     }
 
-    public void SetEventItem(VRCObjectPool pool, EventType type, Vector3 position)
+    public void SetEventItem(EventType type, Vector3 position)
     {
         eventType = type;
-        objectPool = pool;
         spawnPosition = position;
+        isTaken = false;
 
         if (randomColors != null && randomColors.Length > 0)
         {
@@ -40,6 +40,15 @@ public class EventItem : UdonSharpBehaviour
     public override void OnDeserialization()
     {
         UpdateVisuals();
+        ReturnToPool();
+    }
+
+    private void ReturnToPool()
+    {
+        if (isTaken && gameObject.activeSelf && spawner != null)
+        {
+            spawner.PickedUp(gameObject);
+        }
     }
 
     private void UpdateVisuals()
@@ -65,9 +74,17 @@ public class EventItem : UdonSharpBehaviour
 
     public override void Interact()
     {
+        if (!Networking.IsOwner(gameObject))
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+
+        if (isTaken) return;
+
         int value = PlayerData.GetInt(Networking.LocalPlayer, $"EventItem_{eventType}");
         PlayerData.SetInt($"EventItem_{eventType}", value + 1);
         Debug.Log($"Player {Networking.LocalPlayer.displayName} interacted with {eventType} item. Total: {value + 1}");
-        objectPool.Return(gameObject);
+
+        isTaken = true;
+        ReturnToPool();
+        RequestSerialization();
     }
 }

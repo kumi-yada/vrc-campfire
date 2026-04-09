@@ -28,6 +28,8 @@ public class EventSpawner : UdonSharpBehaviour
     [Tooltip("Minimum horizontal distance from the center to avoid spawning (0 = no exclusion).")]
     [SerializeField] private float minSpawnDistance = 0f;
 
+    public AudioSource pickupSound;
+
     private VRCObjectPool pool;
     private float nextSpawnTime;
     private EventType eventType = EventType.None;
@@ -35,19 +37,30 @@ public class EventSpawner : UdonSharpBehaviour
     void Start()
     {
         pool = GetComponent<VRCObjectPool>();
+        ScheduleNextSpawn();
     }
 
     public void SetEventType(EventType type)
     {
         eventType = type;
-        ScheduleNextSpawn();
+    }
+
+    public void PickedUp(GameObject item)
+    {
+        if (!Networking.IsOwner(gameObject)) return;
+        if (pickupSound != null)
+        {
+            pickupSound.Play();
+        }
+
+        pool.Return(item);
     }
 
     void Update()
     {
-        if (eventType == EventType.None) return;
         if (!Utilities.IsValid(pool) || !Networking.IsOwner(gameObject)) return;
         if (Time.time < nextSpawnTime) return;
+        if (eventType == EventType.None) return;
 
         SpawnFromPool(eventType);
         ScheduleNextSpawn();
@@ -73,7 +86,7 @@ public class EventSpawner : UdonSharpBehaviour
         }
 
         var item = spawned.GetComponent<EventItem>();
-        item.SetEventItem(pool, type, spawnPosition);
+        item.SetEventItem(type, spawnPosition);
         // Debug.Log($"Spawned object at {spawnPosition} (candidate {candidatePosition}) with offset {randomOffset}", spawned);
     }
 

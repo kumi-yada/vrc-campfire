@@ -1,6 +1,4 @@
-﻿
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Ocsp;
-using TMPro;
+﻿using TMPro;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +26,7 @@ public class EventManager : UdonSharpBehaviour
     [UdonSynced] private EventType currentEvent = EventType.None;
 
     private int eventItemCount = 0;
-    private const int maxItemCount = 20;
+    private const int maxItemCount = 10;
 
     void Start()
     {
@@ -69,6 +67,16 @@ public class EventManager : UdonSharpBehaviour
         }
     }
 
+    public override void OnPlayerDataUpdated(VRCPlayerApi player, PlayerData.Info[] infos)
+    {
+        if (player.isLocal)
+        {
+            var count = PlayerData.GetInt(Networking.LocalPlayer, $"EventItem_{currentEvent}");
+            SetEventItemCount(count);
+            Debug.Log($"Player {player.displayName} data updated. Current event: {currentEvent}. Item count: {eventItemCount}");
+        }
+    }
+
     public override void OnPlayerRestored(VRCPlayerApi player)
     {
         if (player.isLocal)
@@ -84,11 +92,6 @@ public class EventManager : UdonSharpBehaviour
             }
             Debug.Log($"Player {player.displayName} restored. Current event: {currentEvent}. Item count: {eventItemCount}");
             spawner.SetEventType(currentEvent);
-
-            if (currentEvent != EventType.None && eventItemCount >= maxItemCount)
-            {
-                unlockedEvents[(int)currentEvent].SetActive(true);
-            }
         }
     }
 
@@ -96,6 +99,10 @@ public class EventManager : UdonSharpBehaviour
     {
         eventItemCount = count;
         eventCount.text = $"{eventItemCount}/{maxItemCount}";
+        if (currentEvent != EventType.None && eventItemCount >= maxItemCount)
+        {
+            unlockedEvents[(int)currentEvent].SetActive(true);
+        }
     }
 
 }
