@@ -2456,7 +2456,7 @@ MonoBehaviour:
   xWidth: 35
   yWidth: 35
   raycastStartHeight: 20
-  spawnYOffset: 0.2
+  spawnYOffset: 0.1
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -16877,7 +16877,6 @@ MonoBehaviour:
   DynamicMaterials:
   - {fileID: 2100000, guid: 276ba178bcc5e51f19a2231fe631b2c4, type: 2}
   - {fileID: 2100000, guid: 66edb1511e7cba437bb8f440116a765b, type: 2}
-  - {fileID: 2100000, guid: 376b0650d0312254e99cb545688d265b, type: 2}
   - {fileID: 2100000, guid: 6b2a393454163fc17884cb9b8ebfcff3, type: 2}
   - {fileID: 2100000, guid: 59466d6e9a8ae01f9a18d4cf3a923220, type: 2}
   - {fileID: -1017954804834215706, guid: 4647f707207d9a0aa9a5f0d148798112, type: 3}
@@ -16885,6 +16884,7 @@ MonoBehaviour:
   - {fileID: -6173034093347886414, guid: 4647f707207d9a0aa9a5f0d148798112, type: 3}
   - {fileID: -6776831516410565182, guid: 4647f707207d9a0aa9a5f0d148798112, type: 3}
   - {fileID: -5265988109326455897, guid: 4647f707207d9a0aa9a5f0d148798112, type: 3}
+  - {fileID: 2100000, guid: 376b0650d0312254e99cb545688d265b, type: 2}
   - {fileID: -5265988109326455897, guid: 0d3aab7484e7815808a1e366f33d3a60, type: 3}
   - {fileID: 2100000, guid: 58d828628535877cfbfa3a58ee728af4, type: 2}
   - {fileID: 2100000, guid: fc3c6e9ff540419c18cea34f50f75dd3, type: 2}
